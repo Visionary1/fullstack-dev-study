@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- JavaScript -->
+    <script>
+        // comment
+        /*
+            comment 
+        */
+
+        /*
+
+        // integer variable declare
+        var number = 100;
+        // alert(number);
+
+        // Browser => Inspection => Console
+        console.log("number " + number);
+
+        // string variable declare
+        var str = "hello world";
+        // "" , '' both works
+
+        console.log("str: " + str);
+
+        // if statement
+        if (number == 100) {  // 범위 scope
+            console.log("number is 100");
+
+            var a = 5; // global variable declarization
+
+            let b = 5; // local variable delcarization
+        }
+
+        console.log(a); // hence, a can be outputted
+
+        // console.log(b); // cant output b =< b is local , can call from outside the scope(:= block)
+
+        if (str == "hello world") {
+            console.log("str is hello world !");
+        } else {
+            console.log("str is NOT hello world");
+        }
+
+        // 문자열로 된 숫자와 숫자 비교 "5" '5' 5
+        let strNum = "10";
+        let num = 10;
+
+        // to check value, use ==
+        if (strNum == num) {
+            console.log("same number == comparison"); // TRUE
+        }
+
+        // to check value including type, use ===
+        if (strNum === num) {
+            console.log("same number with same type ====") // FALSE
+        } else {
+            console.log("not same type, same value");
+        }
+
+        // check whether var is empty
+        let empty;
+
+        if (empty == null) {
+            console.log("== null , empty is null"); // TRUE
+        }
+
+        if (empty === null) {
+            console.log("=== null, empty is null");
+        } else {
+            console.log("not ===") // type is not NULL
+        }
+
+        console.log(empty); // undefined,  "undefined" 아님 => str 타입 아님, 그냥 예약어
+
+        // if (empty) {
+        //     console.log("empty if true");
+        // } else {
+        //     console.log("empty if FALSE");
+        // }
+
+        let nullVar = null; // put null as value
+        if (nullVar == undefined) {
+            console.log("nullVar == undefined true"); // TRUE
+        }
+
+        if (nullVar === undefined) {
+            console.log("nullVar === undefined true") // FALSE
+        }
+
+        if (nullVar === null) {
+            console.log("nullVar === null true"); // TRUE
+        }
+        */
+
+        // 1. 변수 alert 출력
+        // 변수를 사용해서 연산하고 alert 창에 아래와 같이 출력하세요.
+        // 출력 예시
+        // 5 X 8 = 40
+        let x = 5;
+        let y = 8;
+        console.log("Q1. " + x * y);
+
+        // 2. 변수 console 출력
+        // 주어진 두 개의 변수를 아래와 같은 형태로 console에 출력하세요.
+        // 변수는 값을 변경하지 말고 그대로 사용하세요.
+        // var number1 = 12;
+        // var number2 = 34;
+        // 출력 예시
+        // 1234
+
+        var number1 = 12;
+        var number2 = 34;
+        console.log("Q2. " + number1 + "" + number2);
+
+        console.log("Q2. " + String(number1) + String(number2));
+
+        // comma creates space
+        // console.log(number1, number2);
+
+        // 3. 변수 비교
+        // 아래 주어진 두 변수를 등호(=) 비교연산자를 통해서 조건문을 만들고 아래와 같이 출력하도록 구현하세요.
+        // var number1 = 10;
+        // var number2 = "10";
+        // 두 값은 같지 않다.
+
+        var number1 = 10;
+        var number2 = "10";
+
+        // != value check
+        // !== including type check
+        if (number1 === number2) {
+            console.log("Q3. same");
+        } else {
+            console.log("Q3. not same");
+        }
+
+        // 4. 변수 비교
+        // 주어진 두 변수를 비교해서 true가 되도록 조건을 만들고 console 로 아래와 같이 출력하세요.
+        // let score;
+        // let number = null;
+        // 출력 예시
+
+        // true
+
+        let score;
+        let number = null;
+
+        // ==
+        // undefined , null 같은 취급
+        if (score == null) {
+            console.log("Q4. same");
+        } else {
+            console.log("Q4. not same");
+        }
+
+        // ===
+        // 타입이 모두 일치할 때만 true
+        if (score === undefined && number === null) {
+            console.log("Q4. " + true);
+        }
+        
+
+        // 5. alert 띄우기
+        // userId 값으로 문장을 완성하여 alert으로 띄우세요.
+        // 변수 예시 (정상적인 경우)
+
+        // var userId = "marobiana";
+        // 변수 예시 (비정상적인 경우)
+
+        // var userId;
+        // var userId = "";
+        // var userId = null;
+        // 출력 예시 (정상적으로 값이 있을 경우)
+
+        // 안녕하세요 marobiana 님
+        // 출력 예시 (비정상적인 경우)
+
+        // 비정상적인 접근입니다. 
+
+        let userId;
+
+        if (userId) {
+            console.log("Q5. 안녕하세요 " + userId);
+        } else {
+            console.log("Q5. 비정상적인 접근입니다.");
+        }
+
+        // 6. 지역 변수
+        // 주어진 코드가 아래 처럼 출력 되도록 수정하세요.
+        // var word1 = "hello";
+
+        // if(word1 == "hello") {
+        //     let word2  = " world";
+        // }
+
+        // console.log(word1 + word2);
+        // 출력 결과
+        // hello world
+
+        var word1 = "hello";
+
+        if(word1 == "hello") {
+            var word2  = " world";
+        }
+
+        console.log(word1 + word2);
+        
+
+    </script>
+</body>
+</html>

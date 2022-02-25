@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <style>
+        #outer-box {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 10px;
+            background-color: blue;
+        }
+
+        .status-info {
+            width: 150px;
+            height: 20px;
+            margin-top: 10px;
+            margin-left: 10px;
+        }
+    </style>
+
+    <script>
+        // ready
+        $(document).ready(function (params) {
+
+            // 1. 색 바꾸기
+            $(".color-picker").on("change", function (params) {
+                return document.getElementById("outer-box").style.backgroundColor = $(".color-picker").val();
+                // $("#outer-box").css("background-color", $(".color-picker").val());
+            })
+
+            // 2. 입력 바꾸기
+            $("input[name=status]").on("change", function (params) {
+
+                let status = {"student": "학교명", "worker": "회사명"}
+
+                return $(".status-text").text(
+                    status[
+                        $("input[name=status]:checked").val()
+                    ]
+                );
+            })
+
+            // 3. 전체 선택
+            $("input[name=checkbox]").on("change", function (params) {
+
+                // return $("input[name=checkbox]").prop("checked", true);
+
+                // if ($(this).is(":checked")) {
+                    
+                // }
+
+                let isAllChecked = $(this).is(":checked");
+
+                if ($("input[name=checkbox]:checked").val() == "select-all") {
+                    return $("input[name=checkbox]").prop("checked", isAllChecked);
+                }
+
+                // 토글
+                // if ($("input[name=checkbox]:checked").val() == "select-all") {
+                //     $("input[name=checkbox]").each(function (params) {
+                //         this.checked = !this.checked;
+                //     })
+                // }
+                
+                // if ($("input[name=checkbox]:checked").val() == "select-all") {
+                //     $("input[name=checkbox]").prop("checked", function (params) {
+                //         return !$(this).prop("checked");
+                //     });
+                // }
+            })
+
+            // 4. 길이 제한
+            // "keyup" event also works, input works better in terms of responsivness tho
+            $(".length-limit").on("input", function (params) {
+                if ($(this).val().length > 5) {
+                    alert("다섯자를 초과하여 입력할 수 없습니다.");
+                    return $(this).val(
+                        $(this).val().substring(0, 5)
+                    );
+                }
+            })
+        });
+    </script>
+
+</head>
+<body>
+    <!-- 1. 색 바꾸기 -->
+    <div>
+        <h2>1. 색 바꾸기</h2>
+        <div id="outer-box"></div>
+        <select class="color-picker">
+            <option value="blue">파란색</option>
+            <option value="red">빨간색</option>
+            <option value="green">녹색</option>
+            <option value="purple">자주색</option>
+        </select>
+
+        <br><hr>
+    </div>
+
+    <!-- 2. 입력 바꾸기 -->
+    <div>
+        <h2>2. 입력 바꾸기</h2>
+        <input type="radio" name="status" value="student" checked>학생
+        <input type="radio" name="status" value="worker">직장인
+    
+        <div class="status-group">
+            <span class="status-text">학교명</span>
+            <input type="text" class="status-info">
+        </div>
+
+        <br><br><hr>
+    </div>
+
+    <!-- 3. 전체 선택 -->
+    <div>
+        <h2>3. 전체 선택</h2>
+
+        <!-- 전체 선택 -->
+        <input type="checkbox" name="checkbox" id="checkbox_id" value="select-all" class="select-all">
+        <label for="checkbox_id">전체 선택</label>
+        <br><br>
+
+        <!-- 개인 정보 활용 동의 -->
+        <input type="checkbox" name="checkbox" id="checkbox_id" value="allow-info">
+        <label for="checkbox_id">개인정보 활용 동의</label>
+
+        <!-- 서비스 이용 동의 -->
+        <input type="checkbox" name="checkbox" id="checkbox_id" value="allow-service">
+        <label for="checkbox_id">서비스 이용 동의</label>
+
+        <!-- 마케팅 활용 동의 -->
+        <input type="checkbox" name="checkbox" id="checkbox_id" value="allow-marketing">
+        <label for="checkbox_id">마케팅 활용 동의</label>
+        <br><br><hr>
+    </div>
+
+
+    <!-- 4. 길이 제한 -->
+    <div>
+        <h2>4. 길이 제한</h2>
+        <input type="text" class="length-limit">
+    </div>
+
+</body>
+</html>

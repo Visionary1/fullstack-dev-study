@@ -1,0 +1,117 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<%@ page import="com.test.common.MysqlService"%>
+<%@ page import="java.sql.*"%>
+<!-- content -->
+<section class="mt-3">
+	<!-- 반응형 그리드 -->
+	<div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+		<%
+		MysqlService sql = MysqlService.getInstance();
+		sql.connection();
+		
+		String selectQuery = "select * from `usedGoods`";
+		ResultSet result = sql.select(selectQuery);
+		
+		while (result.next()) {
+		%>
+		<a href="#" class="col-4 items">
+			<div class="border border-warning h-100">
+				<div class="h-75">
+					<img src="<%= result.getString("pictureUrl") %>" class="img-fluid" alt="goods">
+				</div>
+
+				<div class="h-25 d-flex align-items-end">
+					<div>
+						<div class="fw-bold text-black"><%= result.getString("title") %></div>
+						<div class="fw-light text-secondary"><%= result.getInt("price") %></div>
+						<%
+						String selectQuery_two = "select * from `seller` where `sellerId` = " + result.getInt("sellerId");
+						ResultSet result_two = sql.select(selectQuery);
+						while (result_two.next()) {
+						%>
+							<div class="text-black"><%= result_two.getString("nickname") %></div>
+						<%
+						}
+						%>
+						
+					</div>
+				</div>
+			</div>
+		</a>
+		<%
+		}
+		sql.disconnect();
+		%>
+		
+		<a href="#" class="col-4 items">
+			<div class="border border-warning h-100">
+				<div class="h-75">
+					<img src="https://fdn.gsmarena.com/imgroot/news/20/09/new-ipads-announced/-1200/gsmarena_008.jpg" class="img-fluid" alt="goods">
+				</div>
+
+				<div class="h-25 d-flex align-items-end">
+					<div>
+						<div class="fw-bold text-black">[팝니다] 맥북 프로 팔아요</div>
+						<div class="fw-light text-secondary">18000000</div>
+						<div class="text-black">최준</div>
+					</div>
+				</div>
+			</div>
+		</a> <a href="#" class="col-4 items">
+			<div class="border border-warning h-100">
+				<div class="h-75">
+					<img src="https://www.daangn.com/images/meta/home/daangn.png" class="img-fluid" alt="goods">
+				</div>
+				<div class="h-25 d-flex align-items-end">
+					<div>
+						<div class="fw-bold text-black">[팝니다] 맥북 프로 팔아요</div>
+						<div class="fw-light text-secondary">18000000</div>
+						<div class="text-black">최준</div>
+					</div>
+				</div>
+			</div>
+		</a> <a href="#" class="col-4 items">
+			<div class="border border-warning h-100">
+				<div class="h-75">
+					<img src="https://www.daangn.com/images/meta/home/daangn.png" class="img-fluid" alt="goods">
+				</div>
+				<div class="h-25 d-flex align-items-end">
+					<div>
+						<div class="fw-bold text-black">[팝니다] 맥북 프로 팔아요</div>
+						<div class="fw-light text-secondary">18000000</div>
+						<div class="text-black">최준</div>
+					</div>
+				</div>
+			</div>
+		</a> <a href="#" class="col-4 items">
+			<div class="border border-warning h-100">
+				<div class="h-75">
+					<img src="https://fdn.gsmarena.com/imgroot/news/20/09/new-ipads-announced/-1200/gsmarena_008.jpg" class="img-fluid" alt="goods">
+				</div>
+
+				<div class="h-25 d-flex align-items-end">
+					<div>
+						<div class="fw-bold text-black">[팝니다] 맥북 프로 팔아요</div>
+						<div class="fw-light text-secondary">18000000</div>
+						<div class="text-black">최준</div>
+					</div>
+				</div>
+			</div>
+		</a> <a href="#" class="col-4 items">
+			<div class="border border-warning">
+				<div class="h-75">
+					<img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp-spacegray-select-202011_GEO_US?wid=1280&hei=1190&fmt=jpeg&qlt=80&.v=1632948875000" class="img-fluid" alt="goods">
+				</div>
+
+				<div class="h-25 d-flex align-items-end">
+					<div>
+						<div class="fw-bold text-black">[팝니다] 맥북 프로 팔아요</div>
+						<div class="fw-light text-secondary">18000000</div>
+						<div class="text-black">최준</div>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+</section>

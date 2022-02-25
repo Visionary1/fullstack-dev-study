@@ -1,0 +1,10 @@
+* {margin: 0;}
+
+.flex {display: flex;}
+
+header {width: 1200px; height: 200px;}
+.blue {width: 200px; height: 200px; background-color: blue;}
+.red {width: 1000px; height: 200px; background-color: red;}
+
+.contents {width: 1200px; height: 600px; background-color: orange;}
+.footer {width: 1200px; height: 100px; background-color: green;}

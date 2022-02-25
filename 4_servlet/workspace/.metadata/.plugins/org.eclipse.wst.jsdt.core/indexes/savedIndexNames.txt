@@ -1,0 +1,8 @@
+INDEX VERSION 1.4+/Users/csk/eclipse-workspace/4_servlet/workspace/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
+1773168186.index
+1578482282.index
+3714779542.index
+1984486924.index
+1197217875.index
+503331915.index
+3703194086.index

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" type="text/css" href="prob03_style.css">
+</head>
+<body>
+    <!-- <span class="title">2021.05 가계부</span> -->
+
+    <h1>2021.05 가계부</h1>
+    
+    <table id="tb1">
+        <thead>
+            <tr>
+                <th>날짜</th>
+                <th>사용처</th>
+                <th>결제</th>
+                <th>가격</th>
+            </tr>
+
+        </thead>
+        <tbody>
+            <tr>
+                <td>5월 4일</td>
+                <td>식재료 쇼핑</td>
+                <td>신한 카드</td>
+                <td>8만 7천원</td>
+            <tr>
+                <td>5월 2일</td>
+                <td>기름 주유</td>
+                <td>국민 카드</td>
+                <td>8만 7천원</td>
+            </tr>
+            <tr>
+                <td>5월 2일</td>
+                <td>응급실 떡볶이</td>
+                <td>현금</td>
+                <td>8만 7천원</td>
+            </tr>
+        </tbody>
+
+        <tr class="total">
+            <td>합계</td>
+            <td class="result" colspan="3">149,000</td>
+        </tr>
+    </table>
+
+    날짜 : <input type="text" class="text">
+    사용처 : <input type="text" class="text">
+    결제 : <input type="text" class="text">
+    가격 : <input type="text" class="text">
+    <br><br>
+
+    <button type="button" id="saveBtn">저장하기</button>
+
+</body>
+</html>

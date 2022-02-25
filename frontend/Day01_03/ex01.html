@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>예제 - change event</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    좋아하는 동물을 하나만 선택하세요:
+
+    <input type="radio" name="animal" value="dog" id="dog" checked>    
+    <label for="dog">
+        dog
+    </label>
+
+    <label>
+        <input type="radio" name="animal" value="cat" id="cat">cat
+    </label>
+
+    <label>
+        <input type="radio" name="animal" value="lion">lion
+    </label>
+
+    <br><br>
+
+    <button type="button" id="likecatBtn">고양이를 선택하는 버튼</button>
+
+    <script>
+        $(document).ready(function (params) {
+             $("#likecatBtn").on("click", function (params) {
+                 $("#cat").prop("checked", true);
+             })
+
+            //  radio 버튼에 변경이 일어났을 때
+            $("input[name=animal]").on("change", function (params) {
+                // alert("changed");
+
+                // checked 된 값 찾기
+                let checkedValue = $("input[name=animal]:checked").val();
+
+                // alert(checkedValue);
+            })
+
+            // cancel
+            $("#likeCancelBtn").on("click", function (params) {
+                $("input[name=animal]").prop("checked", false);
+            })
+
+            // 
+            $("#site").on("change", function (params) {
+                let selected = $("#site option:selected").val();
+
+                $("#site option:selected")
+                // alert(selected);
+
+                if (selected == "naver") {
+                    location.href = "https://naver.com";
+                } else if (selected == "google") {
+                    location.href = "https://google.com";
+                } else if (selected == "daum") {
+                    location.href = "https://daum.com";
+                }
+
+                // refresh web-page
+                // location.reload();
+            })
+        });
+    </script>
+
+    <button type="button" id="likeCancelBtn">취소 버튼</button>
+
+    <hr>
+
+    주소 이동:
+    <select id="site">
+        <option value="naver">naver</option>
+        <option value="google">google</option>
+        <option value="daum">다음</option>
+    </select>
+
+
+</body>
+</html>

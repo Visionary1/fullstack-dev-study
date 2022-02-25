@@ -1,0 +1,47 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<%@ page import="com.test.common.MysqlService" %>
+<%@ page import="java.sql.*" %>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>users</title>
+</head>
+<body>
+<%
+	// DB connect
+	MysqlService mysql = MysqlService.getInstance();
+
+	mysql.connection();
+	
+	String selectQuery = "select * from `new_student`";
+	ResultSet result = mysql.select(selectQuery);
+%>
+
+	<table border="1">
+		<thead>
+			<tr>
+				<th>번호</th>
+				<th>이름</th>
+				<th>생년월일</th>
+			</tr>
+		</thead>
+		<tbody>
+		<%
+			while (result.next()) {
+		%>
+			<tr>
+				<td><%= result.get %></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<%
+			}
+			%>
+		</tbody>
+	</table>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 class="class-h1">Hello world !</h1>
+
+    <div id="contents" class="class-div">
+        <p id="p1" class="class-p" name="p_name">my name is kim</p>
+        <p id="p2" class="class-p" name="p_name">my name is kim</p>
+        <a href="http://marondal.com" class="class-a">locate to marondal</a>
+    </div>
+
+    <script>
+        // id로 node 가져오기 : id는 하나이므로 한개의 노드를 얻는다.
+        // 그래서 getElement고 나머지는 다 복수, ...element's' 임
+        let p1 = document.getElementById("p1");
+        console.log(p1);
+
+        // get by className
+        let pClass = document.getElementsByClassName("class-p");
+        console.log(pClass);
+
+        // by tag name
+        let pTag = document.getElementsByTagName("p");
+        console.log(pTag);
+
+        // by name
+        let pNames = document.getElementsByName("p_name");
+        console.log(pNames);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>   
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+
+    <script>
+
+        // 주문하기 버튼 submit
+        // 전달받은 주소에 서울시 가 포함되어 있지 않으면, 배달 불가 지역입니다 를 출력하세요.
+        // 전달 받은 결제 카드가 신한카드인 경우 결제 불가 카드 입니다. 를 출력하세요.
+        function orderFunc(e) {
+
+            let alertMsg = "";
+            let address = $("#address").val().trim();
+            let card = $("#card").is(":visible") ? $("#card").val() : $(".custom-card-input").val().trim();
+
+            if (address.includes("서울시")) {
+                alertMsg += "배달 불가 지역입니다" + "\n";
+            }
+
+            if (card == "shinhan" || card.includes("신한")) {
+                alertMsg += "결제 불가 카드 입니다.";
+            }
+
+            // 주소 = 서울시 || 결제 카드 = 신한이면 submit x
+            if (alertMsg) {
+                alert(alertMsg);
+                return false;
+            }
+
+            // submit
+            return true;
+        }
+
+        // ready
+        $(document).ready(function (params) {
+            
+            // 카드사 직접 입력
+            $("#card").on("change", function (params) {
+
+                let selected = $(this).val();
+
+                if (selected == "custom") {
+                    $(this).hide();
+                    $(".custom-card-input").removeAttr("hidden");
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+    
+    <div class="container">
+
+        <h1>주문하기</h1>
+
+        <!-- 폼 -->
+        <form method="get" action="/servlet/ex07" onsubmit="return orderFunc()">
+
+            <!-- 주소 -->
+            <div class="form-group">
+                <label for="address">주소</label>
+                <input type="text" class="form-control col-3" id="address" name="address">
+            </div>
+
+
+
+            <!-- 결제카드 -->
+            <div class="form-group">
+                <label for="card">결제카드</label><br>
+
+                <!-- 카드사 드롭다운 -->
+                <select class="custom-select col-3" name="card" id="card">
+                    <optgroup label="카드사">
+                        <option value="kb" selected>KB카드</option>
+                        <option value="shinhan">신한카드</option>
+                        <option value="bc">BC카드</option>
+                        <option value="custom">직접 입력</option>
+                    </optgroup>
+                </select>
+
+                <!-- 카드사 직접 입력 -->
+                <input type="text" class="form-control col-3 custom-card-input" name="card" hidden>
+            </div>
+
+            <!-- 가격 -->
+            <div class="form-group">
+                <label for="price">가격</label>
+                <input type="text" class="form-control col-3" id="price" name="price">
+            </div>
+
+            <!-- 주문하기 버튼 -->
+            <button type="submit" class="btn btn-primary col-3">주문하기</button>
+
+        </form>
+    </div>
+</body>
+</html>

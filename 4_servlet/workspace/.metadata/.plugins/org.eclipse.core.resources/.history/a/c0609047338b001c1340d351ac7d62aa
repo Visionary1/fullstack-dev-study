@@ -1,0 +1,54 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<%@ page import="com.test.common.MysqlService" %>
+<%@ page import="java.sql.*" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>3. 목록 출력하기</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+<body>
+	<!-- 3. 목록 출력하기
+jsp를 이용해서 즐겨찾기 table 태그로 출력하세요.
+id 를 기준으로 내림차순으로 출력하세요.
+출력 컬럼은 name, url 입니다.
+url 내용을 a 태그를 이용해서 연결이 되도록 하세요. -->
+
+<table class="table">
+	<thread>
+		<tr>
+			<th>사이트</th>
+			<th>주소</th>
+		</tr>
+	</thread>
+	<tbody>
+	<%
+		MysqlService sql = MysqlService.getInstance();
+		sql.connection();
+		
+		String selectQuery = "select * from `links`";
+		ResultSet result = sql.select(selectQuery);
+	
+		while(result.next()) {
+	%>
+		<tr>
+			<td><%= result.getString("name") %></td>
+			<td>
+				<a href="<%= result.getString("url") %>"><%= result.getString("url") %></a>
+			</td>
+		</tr>
+	<%
+		}
+	%>
+	</tbody>
+	
+	<br>
+	
+</table>
+</body>
+</html>

@@ -1,0 +1,13 @@
+body {background-color: rgb(192, 99, 99);}
+
+.year {font-size: 20px;}
+.month {font-size: 40px;}
+.holiday {color: blueviolet;}
+.today {font-weight: bold; background-color: wheat;}
+
+table, th, td {border: 1px solid #000}
+
+th {height: 30px;}
+td {height: 100px; width: 150px; text-align: center;}
+
+td :hover {background-color: springgreen;}

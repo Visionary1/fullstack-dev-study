@@ -1,0 +1,18 @@
+/* body {background-color: yellow;} */
+
+/* * 전체 적용 */
+* {margin: 0;}
+
+#wrap {width: 1200px; height: 1000px; background-color: aqua;}
+
+header {width: 1200px; height: 200px; background-color: beige;}
+
+.contents {width: 1200px; height: 700px; background-color: yellow;}
+.contents aside {width: 300px; height: 700px; background-color: blueviolet;}
+.contents .right {width: 900px; height: 700px; background-color: gray;}
+
+.flex {display: flex;}
+
+footer {width: 1200px; height: 100px; background-color: green;}
+/* .blue {background-color: blue; width: 100px; height: 100px;}
+.red */

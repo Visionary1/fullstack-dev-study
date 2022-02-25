@@ -1,0 +1,13 @@
+/* body {background-color: aqua;} */
+
+/* #wrap {height: 1000px;} */
+
+header {height: 100px;}
+
+nav {height: 50px;}
+
+.contents {height: 300px;}
+.contents > .left {height: 300px;}
+.contents > aside {height: 300px;}
+
+footer {height: 150px;}

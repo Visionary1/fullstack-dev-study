@@ -1,0 +1,6 @@
+package com.test.lesson04;
+
+@Webservlet("")
+public class Lesson04Ex02Insert {
+
+}

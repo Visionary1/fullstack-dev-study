@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>datepicker</title>
+
+    <!-- jQuery가 datepicker 라이브러리 위에 있어야 한다. (데이터피커가 jquery를 사용하기 때문) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>        
+
+    <!-- datepicker 라이브러리 -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+</head>
+<body>
+    <p>
+        <span>select day: </span>
+        <input type="text" id="datepicker">
+
+        <span>select day: option </span>
+        <input type="text" id="datepickerOption">
+
+        <span>select day: event</span>
+        <input type="text" id="datepickerEvent">
+    </p>
+
+    <script>
+        $(document).ready(function (params) {
+            $("#datepicker").datepicker(); // can select a calendar
+
+            $("#datepickerOption").datepicker({
+                changeMonth: true,
+                changeYear: true,
+                dateFormat: "yy-mm-dd",
+                showAnim: "fadeIn"
+            });
+
+            $("#datepickerEvent").datepicker({
+                changeMonth: true,
+                dateFormat: "yy-mm-dd",
+                beforeShow: function (params) { // 전처리
+                    alert("before datepicker opens");
+                },
+                onSelect: function (dateText) {
+                    // when date is selected
+                    alert("selected day: " + dateText);
+                },
+                onClose: function (dateText) {
+                    // when days is selected or cal is closed
+                    alert("onClose");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

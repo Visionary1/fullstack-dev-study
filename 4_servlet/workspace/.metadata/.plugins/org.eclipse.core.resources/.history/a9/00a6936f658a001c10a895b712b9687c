@@ -1,0 +1,11 @@
+package com.test.common;
+
+public class MysqlService {
+	private static MysqlService mysqlService = null;
+	
+	// 도메인 뒤에 접속할 주소까지 적음
+	private String url = "jdbc:mysql://localhost:3306/csk_211118";
+	private String id = "root";
+	private String pw = "root"; // 본인이 설정한 DB 비번
+	
+}

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- jQuery가 datepicker 라이브러리 위에 있어야 한다. (데이터피커가 jquery를 사용하기 때문) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>   
+    
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <!-- datepicker 라이브러리 -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+    <style>
+        .event-box {
+            width: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div class="event-box">
+        <h2>행사 일정 입력</h2>
+        <span>행사 제목</span>
+        <!-- form-control 은 한 행을 다 차지함 -->
+        <input class="form-control mb-3"></input>
+
+        <div class="d-flex justify-content-between align-itmes-center">
+            <span class="">시작일</span>
+            <input type="text" class="form-control col-4 datepicker-start">
+
+            <span class="">종료일</span>
+            <input type="text" class="form-control col-4 datepicker-end">
+        </div>
+
+        <button type="button" class="btn btn-outline-primary btn-block mt-3">check</button>
+    </div>
+
+    <script>
+        // ready
+        $(document).ready(function (params) {
+
+            // apply to all datepickers
+            $.datepicker.setDefaults({
+
+                yearSuffix: "년",
+                // 요일 표시를 한글로 표기하세요.
+                dayNamesMin: ['일','월','화','수','목','금','토'],
+                dayNames: ['일요일','월요일','화요일','수요일','목요일','금요일','토요일'],
+                monthNamesShort: ['1','2','3','4','5','6','7','8','9','10','11','12'],
+                monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+
+                // 선택된 날짜가 2025-06-07 형태로 보이도록 하세요.
+                dateFormat: 'yy-mm-dd',
+
+                // 시작 날짜에는 오늘을 선택할 수 있는 버튼을 보이게 하세요.
+                showButtonPanel: true,
+            });
+            
+            // 옵션을 통해서 아래 기능을 구현하세요.
+            // datepicker 라이브러리를 활용해서 날짜 선택을 할 수 있도록 만드세요.
+            $(".datepicker-start").datepicker({
+
+                // 시작일은 오늘 이전은 선택할 수 없도록 하세요.
+                minDate: 0,
+
+                // 시작일이 선택되면 종료일은 해당 시작일 이전을 선택하지 못하도록 하세요.
+                onClose: function (dateText) {
+
+                    if (!dateText) {
+                        return;
+                    }
+
+                    // end 캘린더 minDate 시작일로 수정
+                    $(".datepicker-end").datepicker("option", "minDate", dateText);
+
+                    // end 캘린더 보여주기
+                    $( ".datepicker-end" ).datepicker("show");
+                }
+            })
+
+            $(".datepicker-end").datepicker( {
+                
+            })
+
+            // 시작 날짜에는 오늘을 선택할 수 있는 버튼을 보이게 하세요.
+                // Today 누르면 오늘 날짜 선택되게
+            $.datepicker._gotoToday = function(params) { 
+                $(params).datepicker("setDate", new Date()).datepicker("hide").blur(); 
+            }
+
+        });
+    </script>
+</body>
+</html>

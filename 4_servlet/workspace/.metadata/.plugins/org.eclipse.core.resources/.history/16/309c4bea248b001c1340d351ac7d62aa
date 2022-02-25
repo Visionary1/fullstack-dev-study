@@ -1,0 +1,17 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>사용자 추가</title>
+</head>
+<body>
+	
+<!-- 
+	flow
+	
+	1) 유저 ㅇ가 : 인풋 폼 -> 서블릿
+ -->
+</body>
+</html>

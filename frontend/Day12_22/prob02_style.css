@@ -1,0 +1,22 @@
+* {margin: 0;}
+
+/* TA */
+
+/* #wrap {width: 1200px; } */
+
+
+/* Mine */
+body {width: 1200px;}
+
+.flex {display: flex;}
+
+.space-between {justify-content: space-between;}
+
+header .beige {background-color: beige; height: 100px;}
+
+
+.green {background-color: green; width: 900px; height: 500px;}
+.aqua {background-color: aqua; width: 600px; height: 500px;}
+
+.maroon {background-color:maroon; width: 100px; height: 100px;}
+.orange {background-color:orange; width: 1000px; height: 100px;}

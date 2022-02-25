@@ -1,0 +1,6 @@
+package com.test.lesson04;
+
+@WebServlet("/lesson04/addNewItem")
+public class Lesson04Quiz03 {
+
+}

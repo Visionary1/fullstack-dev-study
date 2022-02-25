@@ -1,0 +1,7 @@
+package com.test;
+
+@WebServlet("/lesson04/ex01")
+
+public class Lesson04Ex01 {
+
+}

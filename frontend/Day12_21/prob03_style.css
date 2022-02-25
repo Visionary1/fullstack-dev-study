@@ -1,0 +1,21 @@
+body {background-color: wheat;}
+
+/* .title {font-size: 30px; font-weight: bold;} */
+
+#tb1 {width: 750px; height: 250px; text-align: center;}
+
+#tb1 > thead {background-color: aqua;}
+
+th, td {border: 1px solid; border-collapse: collapse;}
+
+th {height: 40px;}
+
+#tb1 > tbody tr :hover {background-color: springgreen;}
+
+.total {background-color: aqua;}
+.result {text-align: right; padding-right: 10px;}
+
+/* input {width: 100px;} */
+.text {width: 132px; height: 25px;}
+
+#saveBtn {width: 750px; height: 30px;}

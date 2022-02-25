@@ -1,0 +1,19 @@
+#wrap {height: 1000px;}
+
+
+a, a:hover {text-decoration: none;}
+
+header {height: 100px};
+
+
+
+.logo-text {color: skyblue; font-size: 30px;}
+.logo-text:hover {color: darkcyan;}
+
+.contents {height: 500px;}
+
+footer {height: 100px;}
+
+.nav-item .nav-link:hover {color: aqua !important;}
+
+.footer-logo {font-size: 30px;}

@@ -1,0 +1,8 @@
+package com.test.common;
+
+public class MysqlService {
+	private static MysqlService mysqlService = null;
+	
+	private String url = "jdbc:mysql://localhost:3306/csk_211118";
+	
+}

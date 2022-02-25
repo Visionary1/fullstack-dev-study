@@ -1,0 +1,23 @@
+/* #wrap {height: 1000px;} */
+
+header {height: 100px;}
+
+nav .top-menu {height: 50px;}
+
+nav .top-menu-font {font-size: 14px;}
+
+nav .menu {height: 50px;}
+.menu-bg {background-color: gray;}
+
+nav .menu-link-text {font-size: 12px; color: white; font-weight: bold;}
+nav .menu-link-text:hover {color: aqua;}
+
+
+.banner {height: 400px;}
+
+.products {height: 450px;}
+
+.cloths {height: 100px;}
+
+footer {height: 100px;}
+.footer-font {color: aquamarine; font-size: 14px;}

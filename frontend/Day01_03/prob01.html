@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="prob01_style.css" type="text/css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    
+    <script>
+        $(document).ready(function (params) {
+            // ready
+
+            // 1. 비밀번호 일치
+            $(".check-btn").on("click", function (params) {
+
+                // 비밀번호가 적혀있지 않은 경우 "비밀번호를 입력해주세요"
+                if (!$(".pw-draft").val() || !$(".pw-confirm").val()) {
+                    return alert("비밀번호를 입력해주세요");
+                };
+
+                // 일치하는 경우 "확인 완료"
+                if ($(".pw-draft").val() == $(".pw-confirm").val()) {
+                    return alert("확인 완료");
+
+                // 일치하지 않는 경우 "비밀번호가 일치하지 않습니다."
+                } else {
+                   return alert("비밀번호가 일치하지 않습니다.");
+               }
+            });
+
+            // 2. 금칙어 포함 여부 확인
+            $(".blacklist-check-btn").on("click", function (params) {
+                let bannedWords = ["십장생", "시베리아", "조카신발", "쌍쌍바", "십원짜리"];
+                let txt = $(".blacklist-texts").val();
+
+                for (let word of bannedWords) {
+                    if (txt.includes(word)) {
+                        return alert("금칙어가 포함되어 있습니다. 검색할 수 없습니다.");
+                    }
+                };
+            });
+
+            // 3. 더보기
+            $(".more-btn").on("click", function (params) {
+               if ($(".box-text").is(":visible")) {
+                   $(".box-text").hide();
+                   $(".more-btn").text("더보기");
+               } else {
+                   $(".box-text").show();
+                   $(".more-btn").text("닫기");
+               }
+            });
+            
+            // 4. 사각형 바꾸기
+            $(".change-rect").on("click", function (params) {
+
+                if ($("#box4").hasClass("big-rect")) {
+                    $("#box4").removeClass("big-rect").addClass("small-rect");
+                } else {
+                    $("#box4").removeClass("small-rect").addClass("big-rect");
+                }
+            });
+
+            // 5. 이미지 교체
+            let imgs = ["img1", "img2", "img3"];
+
+            // TA's way
+            // img 태그 사용하는 거
+
+            // <img src="/"
+            // / 로 시작하면 절대 주소
+            // 이름으로 시작하면 상대 주소 (current dir) 내 파일을 기준으로 / 없이 시작
+
+            var images = ["img1", 'img2', 'img3'];
+            var currentIndex = 0;
+            $(".prev-btn").on("click", function (params) {
+
+                $("#img").removeClass(images[currentIndex]);
+
+                currentIndex--;
+                
+                if (currentIndex < 0) {
+                    currentIndex = images.length - 1;
+                }
+
+                // $("#img").attr("src", images[currentIndex]);
+
+                $("#img").addClass(imgs[currentIndex]);
+            });
+
+            $(".next-btn").on("click", function (params) {
+                $("#img").removeClass(images[currentIndex]);
+                currentIndex++;
+
+                if (currentIndex > images.length - 1) {
+                    currentIndex = 0;
+                }
+
+                // $("#img").attr("src", images[currentIndex]);
+
+                $("#img").addClass(imgs[currentIndex]);
+                
+            });
+
+
+            /*
+            // 이전
+            $(".prev-btn").on("click", function (params) {
+
+                let elements = document.getElementById("img");
+
+                for (let index = 0; index < imgs.length; index++) {
+                    if (elements.classList.contains(imgs[index])) {
+                        if (index == 0) {
+                            return $("#img").addClass(imgs[imgs.length - 1]).removeClass(imgs[index]);
+                        } else {
+                            return $("#img").addClass(imgs[index - 1]).removeClass(imgs[index]);
+                        }
+                    }
+                };
+            });
+
+            // 다음
+            $(".next-btn").on("click", function (params) {
+
+                let elements = document.getElementById("img");
+
+                for (let index = 0; index < imgs.length; index++) {
+                    if (elements.classList.contains(imgs[index])) {
+                        if (index == imgs.length - 1) {
+                            return $("#img").addClass(imgs[0]).removeClass(imgs[index]);
+                        } else {
+                            return $("#img").addClass(imgs[index + 1]).removeClass(imgs[index]);
+                        }
+                    }
+                };
+            });
+            */
+        });
+    </script>
+</head>
+<body>
+    <!-- 1. 비밀번호 일치
+    두 input 폼에 적힌 비밀번호가 서로 일치하는지 확인 버튼을 눌러 alert 창으로 결과를 띄우세요.
+    비밀번호가 적혀있지 않은 경우 "비밀번호를 입력해주세요"
+    일치하는 경우 "확인 완료"
+    일치하지 않는 경우 "비밀번호가 일치하지 않습니다." -->
+    <div>
+        <h2>1. 비밀번호 일치</h2>
+        비밀번호: 
+        <input type="password" class="pw-draft">
+        비밀번호 확인: 
+        <input type="password" class="pw-confirm">
+        <button type="button" class="check-btn">확인</button>
+        <br><br><hr>
+    </div>
+
+    <!-- 2. 금칙어 포함 여부 확인
+    input 폼과 '검색' 버튼을 만들고, '검색' 버튼을 누르면 input 폼에 작성된 단어에 금칙어가 포함되어 있는지 alert 창으로 결과를 띄우세요.
+    - 금칙어가 포함된 경우: "금칙어가 포함되어 있습니다. 검색할 수 없습니다."
+
+    금칙어 목록
+        var bannedWords = ["십장생", "시베리아", "조카신발", "쌍쌍바", "십원짜리"];
+
+    입력 예시
+        십원짜리백개는얼마
+
+    alert 창 출력 예시
+        금칙어가 포함되어 있습니다. 검색할 수 없습니다. -->
+    <div>
+        <h2>2. 금칙어 포함 여부 확인</h2>
+        <input type="text" class="blacklist-texts">
+        <button type="button" class="blacklist-check-btn">검색</button>
+        <br><br><hr>
+    </div>
+
+
+    <!-- 3. 더보기 -->
+    <div>
+        <h2>3. 더보기</h2>
+        <button type="button" class="more-btn">더보기</button>
+        <div class="box-text" hidden>숨겨져 있던 추가 설명!</div>
+        <br><br><hr>
+    </div>
+
+    <!-- 4. 사각형 바꾸기 -->
+    <div>
+        <h2>4. 사각형 바꾸기</h2>
+        <div id="box4" class="small-rect"></div>
+        <button type="button" class="change-rect">교체</button>
+        <br><br><hr>
+    </div>
+
+    <!-- 5. 이미지 교체 -->
+    <h2>5. 이미지 교체</h2>
+        <div id="img" class="img1"></div>
+        <button type="button" class="prev-btn">이전</button>
+        <button type="button" class="next-btn">다음</button>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,19 @@
+body {background-color: orange;}
+
+#div1 {background-color: aqua; padding: 15px; margin-bottom: 15px;}
+#div2 {background-color: red;}
+
+#div3 {background-color: rgb(44, 202, 44);}
+
+#div4 {background-color: rgb(63, 52, 209);}
+
+.box-size-100 {width: 100px; height: 100px;}
+
+/* space around 중앙부터 나누기 space-between 끝에서부터 나누기 */
+.flex {display: flex; justify-content: space-around;}
+
+/* in-line tag 는 width 가 안 먹힘 */
+/* width, height 수정하려면 display: block 해야 함 */
+/* block 이 되면 아래로 떨어짐 */
+.text1 {background-color: aqua; width: 120px; margin: 20px; display: block;}
+.text2 {background-color: aqua;}

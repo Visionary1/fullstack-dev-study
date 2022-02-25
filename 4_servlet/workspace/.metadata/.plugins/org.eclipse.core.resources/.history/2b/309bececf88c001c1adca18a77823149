@@ -1,0 +1,8 @@
+package com.test.lesson04;
+
+import javax.servlet.annotation.WebServlet;
+
+@WebServlet("/lesson04/quiz04_del")
+public class Lesson04Quiz02_2 {
+
+}
